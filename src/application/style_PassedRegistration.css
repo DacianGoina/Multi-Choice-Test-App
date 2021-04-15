@@ -1,0 +1,19 @@
+#successfulRegistrationLabel{
+	-fx-font-size:25px;
+	-fx-font-family: "Georgia";
+}
+.button{
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+#backToMainMenu{
+	-fx-font-size:20px;
+    -fx-pref-width:280px;
+    -fx-pref-height:50px;
+    -fx-translate-y:100px;
+}

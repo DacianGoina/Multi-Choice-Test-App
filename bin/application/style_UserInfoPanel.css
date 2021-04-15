@@ -1,0 +1,33 @@
+/* UserInfoMenu CSS file*/
+.button{
+    -fx-font-size: 20px;
+    -fx-pref-width:200px;
+    -fx-pref-height:50px;
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#header{
+	-fx-font-size:35px;
+	-fx-translate-x:-250px;
+	-fx-translate-y:-250px;
+}
+#info{
+	-fx-font-size:25px;
+	-fx-translate-x:-200px;
+	-fx-translate-y:-100px;
+}
+#backToUserMenu{
+	-fx-font-size: 25px;
+    -fx-pref-width:150px;
+    -fx-pref-height:50px;
+    -fx-translate-x:-296px;
+    -fx-translate-y:240px;
+}

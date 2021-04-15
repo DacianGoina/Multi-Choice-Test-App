@@ -1,0 +1,52 @@
+/* Login Menu css file */
+.button{
+	 -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+#loginButton{
+	-fx-font-size: 20px;
+    -fx-pref-width:200px;
+    -fx-pref-height:50px;
+    -fx-translate-y:160px;
+}
+#emailField{
+	-fx-max-width:270px;
+	-fx-max-height:40px;
+	-fx-font-size:15px;
+	-fx-translate-x:30px;
+}
+#passField{
+	-fx-max-width:270px;
+	-fx-max-height:40px;
+	-fx-font-size:15px;
+	-fx-translate-x:30px;
+	-fx-translate-y:50px;
+}
+#emailFieldLabel{
+	-fx-font-size:25px;
+	-fx-translate-x:-204px;
+}
+#passFieldLabel{
+	-fx-font-size:25px;
+	-fx-translate-x:-150px;
+	-fx-translate-y:50px;
+}
+#successfulOperation{
+	-fx-font-size:20px;
+	-fx-translate-y:110px;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#backToMainMenu{
+	-fx-font-size: 20px;
+    -fx-pref-width:150px;
+    -fx-pref-height:50px;
+    -fx-translate-x:-310px;
+    -fx-translate-y:250px;
+}

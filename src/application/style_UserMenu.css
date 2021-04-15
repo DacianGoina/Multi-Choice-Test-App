@@ -1,0 +1,59 @@
+/* UserMenu css file
+ * 60px spacing between buttons
+ */
+.button{
+	 -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+#emailInCornerLabel{
+	-fx-font-size:28px;
+	-fx-translate-y:-230px;
+	-fx-font-family: "Calibri Light";
+}
+#createQuestion{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:-140px;
+}
+#editQuestion{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:-80px;
+}
+#groupQuestions{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:-20px;
+}
+#startTest{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:40px;
+}
+#userInfo{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:100px;
+}
+#changePasswd{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:160px;
+}
+#logoutButton{
+	-fx-font-size: 22px;
+    -fx-pref-width:210px;
+    -fx-pref-height:35px;
+    -fx-translate-y:220px;
+}

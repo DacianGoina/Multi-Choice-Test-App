@@ -1,0 +1,38 @@
+/* Start Test Menu Panel Two css file */
+.button{
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#panelTwoHeader{
+	-fx-font-size:25px;
+	-fx-translate-x:-150px;
+	-fx-translate-y:-250px;
+}
+#startTestPanelTwo{
+	-fx-font-size:20px;
+	-fx-translate-y:200px;
+}
+#panelTwoState{
+	-fx-font-size:20px;
+	-fx-translate-y:155px;
+}
+#backToPanelOne{
+	-fx-font-size: 20px;
+    -fx-max-width:90px;
+    -fx-max-height:24px;
+    -fx-translate-x:-340px;
+    -fx-translate-y:255px;
+}
+#BtnsGroup{
+	-fx-translate-x:-280px;
+	-fx-translate-y:-140px;
+	-fx-font-family:"Georgia";
+}

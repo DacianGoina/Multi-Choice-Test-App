@@ -1,0 +1,32 @@
+/* TestResult css file */
+.button{
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#header{
+	-fx-font-size:33px;
+	-fx-translate-x:-270px;
+	-fx-translate-y:-250px;
+}
+#result{
+	-fx-font-size:27px;
+	/*-fx-translate-x:-100px;*/
+}
+#backToUserMenu{
+	-fx-font-size: 20px;
+    -fx-translate-x:-180px;
+    -fx-translate-y:220px;
+}
+#viewTest{
+	-fx-font-size: 20px;
+    -fx-translate-x:100px;
+    -fx-translate-y:220px;
+}

@@ -1,0 +1,32 @@
+/* Main Menu CSS file*/
+/* 70px spacing between buttons */
+.button{
+    -fx-font-size: 26px;
+    -fx-pref-width:240px;
+    -fx-pref-height:54px;
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+#header{
+	-fx-font-size:28px;
+	-fx-translate-y:-220px;
+	-fx-font-family: "Georgia";
+}
+#loginButton{
+	-fx-font-size:20px;
+	/*-fx-translate-x:250px;*/
+	-fx-translate-y:45px;
+}
+#createAccountButton{
+	
+	-fx-translate-y:115px;
+}
+#exitButton{
+	
+	-fx-translate-y:185px;
+}

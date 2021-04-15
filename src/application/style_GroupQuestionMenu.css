@@ -1,0 +1,145 @@
+/* GroupQuestionMenu css file */
+.button{
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#firstSeparator{
+	-fx-background-color:black;
+	-fx-translate-y:-110px;
+}
+#secondSeparator{
+	-fx-background-color:black;
+	-fx-translate-y:60px;
+}
+#header{
+	-fx-font-size:25px;
+	-fx-translate-x:-180px;
+	-fx-translate-y:-265px;
+}
+#chooseQuestion{
+	-fx-font-size:20px;
+	-fx-translate-x:-230px;
+	-fx-translate-y:-220px;
+}
+#questionsMenu{
+	-fx-max-width:785px;
+	-fx-font-size:12px;
+	-fx-max-height:22px;
+	-fx-translate-y:-180px;
+}
+#chooseGroup{
+	-fx-font-size:18px;
+	-fx-translate-x:-336px;
+	-fx-translate-y:-144px;
+}
+#groupMenu{
+	-fx-font-size:12px;
+	-fx-max-width:200px;
+	-fx-translate-x:-180px;
+	-fx-translate-y:-144px;
+}
+#addQuestionToGroup{
+	-fx-font-size:14px;
+	-fx-translate-x:50px;
+	-fx-translate-y:-144px;
+}
+#chooseGroupDown{
+	-fx-font-size:20px;
+	-fx-translate-x:-254px;
+	-fx-translate-y:-80px;
+}
+#groupMenuDown{
+	-fx-font-size:12px;
+	-fx-max-width:200px;
+	-fx-translate-x:-10px;
+	-fx-translate-y:-80px;
+}
+#chooseQuestionDown{
+	-fx-font-size:18px;
+	-fx-translate-x:-324px;
+	-fx-translate-y:-50px;
+}
+#questionsMenuDown{
+	-fx-max-width:785px;
+	-fx-font-size:12px;
+	-fx-max-height:22px;
+	-fx-translate-y:-20px;
+}
+#removeQuestionFromGroup{
+	-fx-font-size:14px;
+	-fx-translate-x:-266px;
+	-fx-translate-y:20px;
+}
+#groupsLabel{
+	-fx-font-size:20px;
+	-fx-translate-x:-274px;
+	-fx-translate-y:80px;
+}
+#newGroupNameLabel{
+	-fx-font-size:18px;
+	-fx-translate-x:-334px;
+	-fx-translate-y:120px;
+}
+#newGroupName{
+	-fx-font-size:18px;
+	-fx-max-width:230px;
+	-fx-max-height:20px;
+	-fx-translate-x:-160px;
+	-fx-translate-y:120px;
+}
+#createNewGroup{
+	-fx-font-size:16px;
+	-fx-translate-x:30px;
+	-fx-translate-y:120px;
+}
+#deleteGroupLabel{
+	-fx-font-size:18px;
+	-fx-translate-x:-334px;
+	-fx-translate-y:180px;
+}
+#groupMenuToDelete{
+	-fx-font-size:12px;
+	-fx-max-width:200px;
+	-fx-translate-x:-170px;
+	-fx-translate-y:180px;
+}
+#deleteGroup{
+	-fx-font-size:16px;
+	-fx-translate-x:30px;
+	-fx-translate-y:180px;
+}
+#backToUserMenu{
+	-fx-font-size: 18px;
+    -fx-max-width:80px;
+    -fx-max-height:22px;
+    -fx-translate-x:-345px;
+    -fx-translate-y:255px;
+}
+#createNewGroupSituation{
+	-fx-font-size:12px;
+	-fx-translate-x:230px;
+	-fx-translate-y:120px;
+}
+#deleteGroupSituation{
+	-fx-font-size:12px;
+	-fx-translate-x:230px;
+	-fx-translate-y:180px;
+}
+#addQuestionInfo{
+	-fx-font-size:13.2px;
+	-fx-translate-x:284px;
+	-fx-translate-y:-142px;
+}
+#removeQuestionInfo{
+	-fx-font-size:16px;
+	-fx-translate-x:10px;
+	-fx-translate-y:20px;
+}

@@ -1,0 +1,77 @@
+/* Create Account Menu css file */
+.button{
+	 -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#createAccount{
+	-fx-font-size: 20px;
+    -fx-pref-width:200px;
+    -fx-pref-height:50px;
+    -fx-translate-y:210px;
+}
+#emailField{
+	-fx-max-width:270px;
+	-fx-max-height:40px;
+	-fx-font-size:15px;
+	-fx-translate-x:30px;
+	-fx-translate-y:-50px;
+}
+#userField{
+	-fx-max-width:270px;
+	-fx-max-height:40px;
+	-fx-font-size:15px;
+	-fx-translate-x:30px;
+}
+#passField{
+	-fx-max-width:270px;
+	-fx-max-height:40px;
+	-fx-font-size:15px;
+	-fx-translate-x:30px;
+	-fx-translate-y:50px;
+}
+#repeatPassField{
+	-fx-max-width:270px;
+	-fx-max-height:40px;
+	-fx-font-size:15px;
+	-fx-translate-x:30px;
+	-fx-translate-y:100px;
+}
+#userFieldLabel{
+	-fx-font-size:25px;
+	-fx-translate-x:-218px;
+}
+#emailFieldLabel{
+	-fx-font-size:25px;
+	-fx-translate-x:-203px;
+	-fx-translate-y:-50px;
+}
+#passFieldLabel{
+	-fx-font-size:25px;
+	-fx-translate-x:-150px;
+	-fx-translate-y:50px;
+}
+#repeatPassFieldLabel{
+	-fx-font-size:25px;
+	-fx-translate-x:-191px;
+	-fx-translate-y:100px;
+}
+#successfulOperation{
+	-fx-font-size:20px;
+	-fx-translate-y:160px;
+	
+}
+#backToMainMenu{
+	-fx-font-size: 20px;
+    -fx-pref-width:150px;
+    -fx-pref-height:50px;
+    -fx-translate-x:-310px;
+    -fx-translate-y:250px;
+}

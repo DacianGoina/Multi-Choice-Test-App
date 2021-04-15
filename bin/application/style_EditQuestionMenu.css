@@ -1,0 +1,173 @@
+/* Edit Question Menu css file */
+.button{
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+#header{
+	-fx-font-size:18px;
+	-fx-translate-y:-266px;
+	-fx-translate-x:-226px;
+}
+#questionsMenu{
+	-fx-max-width:785px;
+	-fx-font-size:12px;
+	-fx-max-height:22px;
+	-fx-translate-y:-238px;
+}
+#questionLabel{
+	-fx-font-size:17px;
+	-fx-translate-x:-331px;
+	-fx-translate-y:-210px;
+}
+#questionBody{
+	-fx-max-width:690px;
+	-fx-max-height:33px;
+	-fx-font-size:16px;
+	-fx-translate-x:-40px;
+	-fx-translate-y:-175px;
+}
+#statementsListLabel{
+	-fx-font-size:20px;
+	-fx-translate-x:-290px;
+	-fx-translate-y:-130px;
+}
+#validityListLabel{
+	-fx-font-size:20px;
+	-fx-translate-x:290px;
+	-fx-translate-y:-130px;
+}
+/* 60 px distanta verticala */
+#S1{
+	-fx-font-size:22px;
+	-fx-translate-x:-370px;
+	-fx-translate-y:-90px;
+}
+#S2{
+	-fx-font-size:22px;
+	-fx-translate-x:-370px;
+	-fx-translate-y:-30px;
+}
+#S3{
+	-fx-font-size:22px;
+	-fx-translate-x:-370px;
+	-fx-translate-y:30px;
+}
+#S4{
+	-fx-font-size:22px;
+	-fx-translate-x:-370px;
+	-fx-translate-y:90px;
+}
+#S5{
+	-fx-font-size:22px;
+	-fx-translate-x:-370px;
+	-fx-translate-y:150px;
+}
+#S1Field{
+	-fx-max-width:580px;
+	-fx-max-height:30px;
+	-fx-font-size:16px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:-90px;
+}
+#S2Field{
+	-fx-max-width:580px;
+	-fx-max-height:30px;
+	-fx-font-size:16px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:-30px;
+}
+#S3Field{
+	-fx-max-width:580px;
+	-fx-max-height:30px;
+	-fx-font-size:16px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:30px;
+}
+#S4Field{
+	-fx-max-width:580px;
+	-fx-max-height:30px;
+	-fx-font-size:16px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:90px;
+}
+#S5Field{
+	-fx-max-width:580px;
+	-fx-max-height:30px;
+	-fx-font-size:16px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:150px;
+}
+#S1V{
+	-fx-font-size:20px;
+	-fx-font-weight: bold;
+	-fx-max-width:30px;
+	-fx-max-height:30px;
+	-fx-translate-y:-90px;
+	-fx-translate-x:290px;
+}
+#S2V{
+	-fx-font-size:20px;
+	-fx-font-weight: bold;
+	-fx-max-width:30px;
+	-fx-max-height:30px;
+	-fx-translate-y:-30px;
+	-fx-translate-x:290px;
+}
+#S3V{
+	-fx-font-size:20px;
+	-fx-font-weight: bold;
+	-fx-max-width:30px;
+	-fx-max-height:30px;
+	-fx-translate-y:30px;
+	-fx-translate-x:290px;
+}
+#S4V{
+	-fx-font-size:20px;
+	-fx-font-weight: bold;
+	-fx-max-width:30px;
+	-fx-max-height:30px;
+	-fx-translate-y:90px;
+	-fx-translate-x:290px;
+}
+#S5V{
+	-fx-font-size:20px;
+	-fx-font-weight: bold;
+	-fx-max-width:30px;
+	-fx-max-height:30px;
+	-fx-translate-y:150px;
+	-fx-translate-x:290px;
+}
+#editQuestion{
+	-fx-font-size:20px;
+	-fx-max-width:210px;
+	-fx-max-height:40px;
+	-fx-translate-x:-140px;
+	-fx-translate-y:215px;
+}
+#deleteQuestion{
+	-fx-font-size:20px;
+	-fx-max-width:200px;
+	-fx-max-height:40px;
+	-fx-translate-x:100px;
+	-fx-translate-y:215px;
+}
+#successfulOperation{
+	-fx-font-size:20px;
+	-fx-translate-y:260px;
+	/*-fx-translate-x:-160px;*/
+}
+#backToUserMenu{
+	-fx-font-size: 18px;
+    -fx-max-width:80px;
+    -fx-max-height:22px;
+    -fx-translate-x:-345px;
+    -fx-translate-y:255px;
+}

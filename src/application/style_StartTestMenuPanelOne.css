@@ -1,0 +1,121 @@
+/* StartTestMenu Panel One css file */
+.button{
+    -fx-font-size: 20px;
+    -fx-pref-width:200px;
+    -fx-pref-height:50px;
+    -fx-font-family: "Georgia";
+    -fx-border-radius:4px;
+    -fx-border-color:black;
+    -fx-border-width: 1px;
+}
+.button:hover{
+	-fx-color:#dcddde;
+}
+.label{
+	-fx-font-family: "Georgia";
+}
+.radiobutton{
+	-fx-font-family: "Georgia";
+}
+#panelOneHeader{
+	-fx-font-size:30px;
+	-fx-translate-x:-296px;
+	-fx-translate-y:-260px;
+}
+#proprieties{
+	-fx-font-size:26px;
+	-fx-translate-x:-316px;
+	-fx-translate-y:-194px;
+}
+#timeLimit{
+	-fx-font-size:24px;
+	-fx-translate-x:-304px;
+	-fx-translate-y:-140px;
+}
+#noTimeLimit{
+	-fx-font-size:15px;
+	-fx-pref-width:170px;
+	-fx-pref-height:40px;
+	-fx-translate-x:-130px;
+	-fx-translate-y:-142px;
+}
+#withTimeLimit{
+	-fx-font-size:15px;
+	-fx-pref-width:216px;
+	-fx-pref-height:50px;
+	-fx-translate-x:-107px;
+	-fx-translate-y:-116px;
+}
+#numberOfMinutes{
+	-fx-pref-width:70px;
+	-fx-pref-height:15px;
+	-fx-translate-x:30px;
+	-fx-translate-y:-116px;
+}
+#numberOfQuestionsLabel{
+	-fx-font-size:24px;
+	-fx-translate-x:-279px;
+	-fx-translate-y:-58px;
+}
+#numberOfQuestions{
+	-fx-pref-width:70px;
+	-fx-pref-height:20px;
+	-fx-translate-x:-132px;
+	-fx-translate-y:-57px;
+}
+#questionsDomains{
+	-fx-font-size:24px;
+	-fx-translate-x:-288px;
+	-fx-translate-y:-2px;
+}
+#allDomains{
+	-fx-font-size:15px;
+	-fx-pref-width:170px;
+	-fx-pref-height:40px;
+	-fx-translate-x:-93px;
+	-fx-translate-y:-2px;
+}
+#specifiedDomains{
+	-fx-font-size:15px;
+	-fx-pref-width:170px;
+	-fx-pref-height:40px;
+	-fx-translate-x:-93px;
+	-fx-translate-y:24px;
+}
+#evaluationType{
+	-fx-font-size:24px;
+	-fx-translate-x:-262px;
+	-fx-translate-y:80px;
+}
+#totalMode{
+	-fx-font-size:15px;
+	-fx-pref-width:170px;
+	-fx-pref-height:40px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:80px;
+}
+#mixtMode{
+	-fx-font-size:15px;
+	-fx-pref-width:170px;
+	-fx-pref-height:40px;
+	-fx-translate-x:-50px;
+	-fx-translate-y:106px;
+}
+#goToNextPanel{
+	-fx-font-size:22px;
+	-fx-pref-width:150px;
+	-fx-pref-height:40px;
+	-fx-translate-x:10px;
+	-fx-translate-y:230px;
+}
+#tooFewQuestions{
+	-fx-font-size:20px;
+	-fx-translate-y:180px;
+}
+#backToUserMenu{
+	-fx-font-size: 20px;
+    -fx-max-width:90px;
+    -fx-max-height:24px;
+    -fx-translate-x:-340px;
+    -fx-translate-y:255px;
+}
