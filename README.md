@@ -9,6 +9,7 @@ Made with Java, Java FX, CSS and H2 database.
 
 **You can simulate (make) a test custom time limit, custom number of questions, rule for awarding points etc**
 
+[**RO**: Aplicație pentru prelucrarea și simularea testelor grilă]
 
 
 **User Menu:**
