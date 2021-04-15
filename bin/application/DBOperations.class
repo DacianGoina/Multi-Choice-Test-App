@@ -1,0 +1,111 @@
+ ˛∫æ   4r  application/DBOperations  java/lang/Object dbUser Ljava/lang/String; dbPasswd <clinit> ()V Code  user	      passwd	     LineNumberTable LocalVariableTable <init>
+    	 this Lapplication/DBOperations; createMainTables  org.h2.Driver
+     java/lang/Class ! " forName %(Ljava/lang/String;)Ljava/lang/Class;
+ $ & %  java/lang/ClassNotFoundException ' 	 printStackTrace ) java/lang/String + …CREATE TABLE IF NOT EXISTS USERS ( EMAIL VARCHAR(70), USERNAME VARCHAR(30), PASSWD VARCHAR(30), ACCOUNTTYPE VARCHAR(5), TESTSCOUNT INT, REGISTRATIONDATE DATE, TOTALSCORE DOUBLE(2), PRIMARY KEY(EMAIL));
+ ( -  . (Ljava/lang/String;)V 0 ÛCREATE TABLE IF NOT EXISTS QUESTIONS( ID VARCHAR(7), QUESTION VARCHAR(150), S1 VARCHAR(100), S1V BOOLEAN, S2 VARCHAR(100), S2V BOOLEAN, S3 VARCHAR(100), S3V BOOLEAN, S4 VARCHAR(100), S4V BOOLEAN, S5 VARCHAR(100), S5V BOOLEAN, PRIMARY KEY (ID)) 2 4CREATE TABLE IF NOT EXISTS GROUPS (NAME VARCHAR(30)) 4 ˇCREATE TABLE IF NOT EXISTS  FILTERED_QUESTIONS(DOMAIN VARCHAR(30), ID VARCHAR(7), QUESTION VARCHAR(150), S1 VARCHAR(100), S1V BOOLEAN,  S2 VARCHAR(100), S2V BOOLEAN, S3 VARCHAR(100), S3V BOOLEAN, S4 VARCHAR(100), S4V BOOLEAN, S5 VARCHAR(100), S5V BOOLEAN) 6 jdbc:h2:tcp://localhost/~/test
+ 8 : 9 java/sql/DriverManager ; < getConnection M(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/sql/Connection; > @ ? java/sql/Connection A B createStatement ()Ljava/sql/Statement; D F E java/sql/Statement G H executeUpdate (Ljava/lang/String;)I
+ J & K java/sql/SQLException e "Ljava/lang/ClassNotFoundException; 
+USERSTable QUESTIONSTable GROUPS FILTERED_QUESTIONS conn Ljava/sql/Connection; st Ljava/sql/Statement; Ljava/sql/SQLException; StackMapTable checkConnection ()Z	 [ ] \ application/MainMenu ^ _ noConnectionLabel Ljavafx/scene/control/Label;
+ a c b javafx/scene/control/Label d e 
+setVisible (Z)V g %Nu exista conexiune spre baza de date
+ a i j . setText checkUserNameKey (Ljava/lang/String;)Z n -SELECT USERNAME FROM USERS WHERE USERNAME = ? > p q r prepareStatement 0(Ljava/lang/String;)Ljava/sql/PreparedStatement; t v u java/sql/PreparedStatement w x 	setString (ILjava/lang/String;)V t z { | executeQuery ()Ljava/sql/ResultSet;
+  ~  Ä toString ()Ljava/lang/String; Ç rows: 0
+ ( Ñ Ö Ü contains (Ljava/lang/CharSequence;)Z	 à ä â java/lang/System ã å out Ljava/io/PrintStream; é Nu s-a adaugat contul
+ ê í ë java/io/PrintStream ì . println username Ljava/sql/PreparedStatement; rez Ljava/sql/ResultSet; ô java/sql/ResultSet checkEmailKey ú 'SELECT EMAIL FROM USERS WHERE EMAIL = ? email 
+newAccount 9(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V ° (INSERT INTO USERS VALUES (?,?,?,?,?,?,?) £ USER t • ¶ ß setInt (II)V © SELECT CURRENT_DATE D ´ { ¨ ((Ljava/lang/String;)Ljava/sql/ResultSet; ò Æ Ø Y next ò ± ≤ ≥ getDate (I)Ljava/sql/Date; t µ ∂ ∑ 	setObject (ILjava/lang/Object;)V t π ∫ ª 	setDouble (ID)V t Ω G æ ()I ¿ Cont adaugat! userName password 
+checkLogin '(Ljava/lang/String;Ljava/lang/String;)Z ∆ /SELECT EMAIL, PASSWD FROM USERS WHERE EMAIL = ? ò » …   	getString (I)Ljava/lang/String; Ã java/lang/StringBuilder
+ ( Œ œ – valueOf &(Ljava/lang/Object;)Ljava/lang/String;
+ À - ”  
+ À ’ ÷ ◊ append -(Ljava/lang/String;)Ljava/lang/StringBuilder;
+ À ~
+ ( ⁄ € ‹ equals (Ljava/lang/Object;)Z ﬁ Logare cu succes! ‡ Logare esuata getEmail getPassword getUserInfo &(Ljava/lang/String;)Lapplication/User; Ê "SELECT * FROM USERS WHERE EMAIL= ? Ë application/User ò Í Î Ï getInt (I)I ò Ó Ô  	getDouble (I)D
+ Á Ú  Û ](Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/util/Date;D)V ı %Nu pot obtine datele despre utilzator ˜   ˘ java/util/Date
+ ¯  registrationDate Ljava/util/Date; ChangePassword '(Ljava/lang/String;Ljava/lang/String;)V  +UPDATE USERS SET PASSWD = ? WHERE EMAIL = ? "Nu s-a realizat schimbarea parolei 	newPasswd 	userEmail createQuestion (Lapplication/Question;)V 6INSERT INTO QUESTIONS VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+ 
+ Ä validateQuestionID
+ application/Question . setID
+ Ä getID
+ Ä getQuestionBody
+ Ä getS1
+ Y isS1V t  
+setBoolean (IZ)V
+"# Ä getS2
+%& Y isS2V
+() Ä getS3
++, Y isS3V
+./ Ä getS4
+12 Y isS4V
+45 Ä getS5
+78 Y isS5V
+ ê: ì; (Ljava/lang/Object;)V= Intrebarea nu a fost adaugata v Lapplication/Question;A %SELECT ID FROM QUESTIONS WHERE ID = ?
+CED application/GenerateQuestionIDF Ä generateH columns: 1 rows: 0 pos: -1J &Problema la conectarea la baza de date id unique Z getQuestions +(Lapplication/Test;)[Lapplication/Question;
+QSR application/TestT æ getNumberOfQuestionsV /SELECT * FROM questions ORDER BY RAND() LIMIT ? òXYZ 
+getBoolean (I)Z
+\ ] Ü(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ZLjava/lang/String;ZLjava/lang/String;ZLjava/lang/String;Z)V
+_` 	 shuffleVariantsb Nu pot obtine intrebari f Lapplication/Test; A [Lapplication/Question; i I jfl SELECT COUNT(*) FROM QUESTIONSn problema number getQuestionsFromGroups *(Ljava/util/List;I)[Lapplication/Question; 	Signature >(Ljava/util/List<Ljava/lang/String;>;I)[Lapplication/Question;u java/util/LinkedList
+t xzy java/util/List{| iterator ()Ljava/util/Iterator;~Ä java/util/Iterator ØÅ ()Ljava/lang/Object;É 1SELECT * FROM FILTERED_QUESTIONS WHERE DOMAIN = ?xÖÜ ‹ add~àâ Y hasNextã java/util/HashSet
+äç é (Ljava/util/Collection;)Vêíë java/util/Setì æ sizeï Nu am destule intrebarixóò 	 clearêz
+õùú java/util/Collectionsûü shuffle (Ljava/util/List;)Vx°¢£ get (I)Ljava/lang/Object; domains Ljava/util/List; numberOfQuestions auxList uniqueQuestions Ljava/util/Set; LocalVariableTypeTable $Ljava/util/List<Ljava/lang/String;>; (Ljava/util/List<Lapplication/Question;>; 'Ljava/util/Set<Lapplication/Question;>; IncrementTestsNumber (Lapplication/User;)V± ,SELECT TESTSCOUNT FROM USERS WHERE EMAIL = ?
+ Á≥ · Äµ /UPDATE USERS SET TESTSCOUNT = ? WHERE EMAIL = ?∑ nu am incrementat currentUser Lapplication/User; n updateTotalScore (Lapplication/User;D)Væ ,SELECT TOTALSCORE FROM USERS WHERE EMAIL = ?¿ /UPDATE USERS SET TOTALSCORE = ? WHERE EMAIL = ?¬ Nu am actualizat Grade D 
+totalScore checkGroupName» &SELECT NAME FROM GROUPS WHERE NAME = ?  rows: 0 pos: -1 val createNewGroupŒ INSERT INTO GROUPS VALUES(?)– Am adaugat grupul!“ adaugare esuata checkGroupsNumber’ SELECT COUNT(*) FROM GROUPS getGroupsAsString ()Ljava/util/List; &()Ljava/util/List<Ljava/lang/String;>;⁄ SELECT NAME FROM GROUPS 	getGroups %()Ljavafx/collections/ObservableList; 9()Ljavafx/collections/ObservableList<Ljava/lang/String;>;
+ﬂ·‡  javafx/collections/FXCollections‚‹ observableArrayList‰ÖÂ !javafx/collections/ObservableList #Ljavafx/collections/ObservableList; 7Ljavafx/collections/ObservableList<Ljava/lang/String;>; getAllQuestionsÍ !SELECT ID,QUESTION FROM QUESTIONSÏ  |  deleteGroupÔ !DELETE FROM GROUPS WHERE NAME = ?Ò /DELETE FROM FILTERED_QUESTIONS WHERE DOMAIN = ? addQuestionToGroupÙ %SELECT * FROM QUESTIONS WHERE ID = ? 
+ (ˆ˜¯ 	substring (II)Ljava/lang/String;˙ =SELECT * FROM FILTERED_QUESTIONS WHERE DOMAIN = ? AND ID = ? ¸ -------------------˛ @INSERT INTO FILTERED_QUESTIONS VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)  7@@@@@@@@@@@@@@@@@ AM ADAUGAT INTREBAREA @@@@@@@@@@@@@@@	 application/GroupQuestionMenu _ addQuestionInfo		 javafx/scene/paint/Color
+ GREEN Ljavafx/scene/paint/Color;
+ a setTextFill (Ljavafx/scene/paint/Paint;)V %√éntrebarea a fost adaugatƒÉ √Æn grup	 _ removeQuestionInfo	 _ deleteGroupSituation	 _ createNewGroupSituation	 RED (√éntrebarea nu a fost adaugatƒÉ √Æn grup group question aux auxRez st2 getQuestionsFromGroup 7(Ljava/lang/String;)Ljavafx/collections/ObservableList; K(Ljava/lang/String;)Ljavafx/collections/ObservableList<Ljava/lang/String;>;) ;SELECT ID,QUESTION FROM FILTERED_QUESTIONS WHERE DOMAIN = ? removeQuestionFromGroup, :DELETE FROM FILTERED_QUESTIONS WHERE DOMAIN = ? AND ID = ?. &√éntrebarea a fost eliminatƒÉ din grup getQuestionInfo1 question id: 3 $SELECT * FROM QUESTIONS WHERE ID = ?	576 application/EditQuestionMenu89 questionBody  Ljavafx/scene/control/TextField;
+; i< javafx/scene/control/TextField	5>?9 S1Field	5ABC S1V Ljavafx/scene/control/Button;e
+F iG javafx/scene/control/ButtonI F	5KL9 S2Field	5NOC S2V	5QR9 S3Field	5TUC S3V	5WX9 S4Field	5Z[C S4V	5]^9 S5Field	5`aC S5V deleteQuestiond +DELETE FROM FILTERED_QUESTIONS WHERE ID = ?f "DELETE FROM QUESTIONS WHERE ID = ? editQuestioni ÇUPDATE QUESTIONS SET QUESTION = ?, S1 = ?,S1V = ?, S2 = ?, S2V = ?, S3 = ?, S3V = ?, S4 = ?, S4V = ?, S5 = ?, S5V = ? WHERE ID = ?k ãUPDATE FILTERED_QUESTIONS SET QUESTION = ?, S1 = ?,S1V = ?, S2 = ?, S2V = ?, S3 = ?, S3V = ?, S4 = ?, S4V = ?, S5 = ?, S5V = ? WHERE ID = ?
+;mn Ä getText
+Fm 
+SourceFile DBOperations.java !      
+     
+        	  
+   /      ≥ ≥ ±       
+               	  
+   /     *∑ ±                        	  	  
+  [     {∏ Wß K*∂ #ª (Y*∑ ,Kª (Y/∑ ,Lª (Y1∑ ,Mª (Y3∑ ,N5≤ ≤ ∏ 7:π = :*π C W+π C W,π C W-π C Wß 
+:∂ I±     	 $ 6 p s J     B       ! 
+ "  $  ' " + , , 6 1 C 2 L 3 U 4 ^ 5 g 6 p 8 u 9 z ;    R  
+  L M    c N    " Y O   , O P   6 E Q   C - R S  L $ T U  u  L V  W    I $ˇ d  ( ( ( (  J 	 X Y  
+   è     +5≤ ≤ ∏ 7K≤ Z∂ `¨K*∂ I≤ Z∂ `≤ Zf∂ h¨      J     "    A  B  C  D  E  F ! G ) H       	 R S     L V   W    U J 	 k l  
+   Ê     C5≤ ≤ ∏ 7L+mπ o M,*π s ,π y N-∂ }Å∂ Éô ¨¨L≤ áç∂ è+∂ I¨    0 4 J     .    O  P  Q  R $ S 0 T 2 U 4 W 5 X = Y A Z    4    C î     ( R S    T ï  $  ñ ó  5  L V  W    ˛ 2 > t òˇ   (  J 	 ö l  
+   Ê     C5≤ ≤ ∏ 7L+õπ o M,*π s ,π y N-∂ }Å∂ Éô ¨¨L≤ áç∂ è+∂ I¨    0 4 J     .    a  b  c  d $ e 0 f 2 g 4 i 5 j = k A l    4    C ù     ( R S    T ï  $  ñ ó  5  L V  W    ˛ 2 > t òˇ   (  J 	 û ü  
+  f     õ5≤ ≤ ∏ 7N-†π o :*π s +π s ,π s ¢π s π § -π = :®π ™ :π ≠ Wπ ∞ π ¥ π ∏ π º W≤ áø∂ èß N≤ áç∂ è-∂ I±    ä ç J     J    t  u  v  w ( x 1 y ; z D } L ~ W  _ Å p Ç z É Ç Ñ ä Ü é á ñ à ö ä    R    õ ù      õ ¡     õ ¬    ~ R S   t T ï  L > ≤ U  W 3 ñ ó  é  L V  W   	 ˜ ç J 	 √ ƒ  
+  ç     ú5≤ ≤ ∏ 7M,≈π o N-*π s -π y :∂ }Å∂ Éô ¨π ≠ Wπ « :π « :≤ áª ÀY∏ Õ∑ —“∂ ‘∂ ‘∂ ÿ∂ è*∂ Ÿô +∂ Ÿô ≤ á›∂ è¨¨M≤ áﬂ∂ è,∂ I¨    2 ç J 4 â ç J     J    è  ê  ë  í % ì 2 î 4 ò < ô F ö P õ o ú Å ù â û ã ° ç ¢ é £ ñ § ö ¶    R    ú ù      ú ¬    Å R S   x T ï  % h ñ ó  F G ·   P = ‚   é  L V  W   ' ˛ 4 > t ò˝ V ( (ˇ   ( (  J 	 „ ‰  
+  * 
+    ê5≤ ≤ ∏ 7L+Âπ o M,*π s ,π y N-π ≠ W-π ∞ :ª ÁY-π « -π « -π « -π « -π È -π Ì ∑ Ò∞L≤ áÙ∂ è+∂ Iª ÁYˆˆˆˆª ¯Y∑ ˙∑ Ò∞    i j J     .    ≠  Æ  Ø  ∞ $ ± + ≤ 5 ≥ j µ k ∂ s ∑ w π    >    ê ù     ^ R S   U T ï  $ F ñ ó  5 5 ˚ ¸  k  L V  W    ˜ j J 	 ˝ ˛  
+   ≈     >5≤ ≤ ∏ 7M,ˇπ o N-*π s -+π s -π º Wß M≤ á∂ è,∂ I±    , / J     & 	   ø  ¿  ¡  ¬ % √ , ≈ 0 ∆ 9 « = …    4    >      >      R S    T ï  0  L V  W    o J 	  
+  w     »5≤ ≤ ∏ 7L+π o M*∏	∂,*∂π s ,*∂π s ,*∂π s ,*∂π ,*∂!π s ,*∂$π ,*∂'π s ,*∂*π ,	*∂-π s ,
+*∂0π ,*∂3π s ,*∂6π ,π º W≤ á*∂9ß L≤ á<∂ è+∂ I±    ∂ π J     V    Œ  œ  “  ‘ ( ’ 3 ÷ > ◊ I ÿ T Ÿ ` ⁄ l € x ‹ Ñ › ê ﬁ ú ﬂ ® ‚ Ø ‰ ∂ Â ∫ Ê √ Á « È    *    »>?    ™ R S   † T ï  ∫  L V  W   	 ˜ π J 	 Ä  
+  ,     d5≤ ≤ ∏ 7K*@π o L“M>ß 2∏BM+,π s +π y :≤ á∂ }∂ è∂ }G∂ Éô >ôˇ–,∞K≤ áI∂ è*∂ I“∞    R S J     F    Ó    Ú  Û  ı  ˆ " ˜ * ¯ 2 ˘ = ˙ K ˚ M ı Q ˇ S T ] a    >   G R S    = T ï   :K    8LM  2  ñ ó  T  L V   W    ˇ   > t (  .ˇ     J 	NO  
+  ⁄     ‚5≤ ≤ ∏ 7L*∂PΩM+Uπ o N-*∂Pπ § -π y :6ß x,ªYπ « π « π « πW π « πW π « πW 	π « 
+πW π « πW ∑[SÑπ ≠ öˇÑ6ß ,2∂^Ñ,æ°ˇÚ,∞L≤ áa∂ è+∂ IΩ∞    Œ œ J     R       ) 1 4 7 f ® © ¨ ∂ º √ Õ" œ$ –% Ÿ& ›'    R    ‚cd    √ R S   ªef   ± T ï  1 û ñ ó  4 õgh  π ih  –  L V  W   . ˇ 7 Q >j t ò  ˚ t¸ 	ˇ  Q  J 	TZ  
+   ‰     C5≤ ≤ ∏ 7L+kπ o M,π y N-π ≠ W-π È ° ¨¨L≤ ám∂ è+∂ I¨    / 3 J     .   2 3 4 5 $6 /7 19 3: 4; =< A=    4    Coh    ' R S    T ï    ñ ó  4  L V  W    ˛ 1 > t òˇ    J 	pq r   s 
+  ë  	  ~5≤ ≤ ∏ 7MΩNªtY∑v:*πw :ß ±π} ¿ (:,Çπ o :π s π y :ß zªYπ « π « π « πW π « πW π « 	πW 
+π « πW π « πW ∑[πÑ Wπ ≠ öˇÇπá öˇKªäY∑å:πè ¢ ≤ áî∂ è∞πñ πô :ß π} ¿:πÑ Wπá öˇ„∏ö6ß -π† ¿SÑ°ˇÍ6ß -2∂^Ñ-æ°ˇÚ-∞M≤ ám∂ è,∂ I∞    ¸n J ˛mn J     ä "  H J L P 1Q <R FS OT RU xV •W √U …T ”P ›[ Ë\ Û] ¸^ ˛bcd'c1f6g<hLgUk[lbklnnpoqxr|s    Ñ   ~§•    ~¶h  b R S  ]ef  Tß•  1 ¢g   < ó T ï  O Ñ ñ ó  Ë Ü®©  
+g? 9 gh X ih o  L V ™       ~§´   Tß¨  Ë Ü®≠  W   ± ˇ % x >jx ~  ˇ , 	x >jx (~ t ò  ˚ vˇ 	 x >jx ~  ˇ * x >jxê  ˇ  x >jxê ~  ˇ  x >jxê  	ˇ  x  J 	ÆØ  
+       r5≤ ≤ ∏ 7L+∞π o M,*∂≤π s ,π y N-π ≠ W-π È 6Ñ+¥π o M,π § ,*∂≤π s ,π º Wß L≤ á∂∂ è+∂ I±    ` c J     >   } ~ Ä !Å (Ç /Ñ 8Ö ;Ü Eá Nà Yä `å dç mé qê    >    r∏π    T R S   J T ï  ( 8 ñ ó  8 (∫h  d  L V  W   	 ˜ c J 	ªº  
+  4     5≤ ≤ ∏ 7N-Ωπ o :*∂≤π s π y :π ≠ Wπ Ì 9'c9-øπ o :π ∏ *∂≤π s π º Wß N≤ á¡∂ è-∂ I±    m p J     >   ó ò ö #õ ,ú 4û >ü D† O° Y¢ e§ m¶ qß z® ~™    H    ∏π     √ƒ   a R S   V T ï  , A ñ ó  > /≈ƒ  q  L V  W   	 ˜ p J 	∆ l  
+   ˆ     O5≤ ≤ ∏ 7L+«π o M,*π s ,π y N≤ á-∂ }∂ è-∂ }…∂ Éô ¨¨L≤ áˆ∂ è+∂ I¨    < @ J     2   ≤ ≥ ¥ µ %∂ /∫ <ª >Ω @ø A¿ I¡ M¬    4    OÀ     4 R S   * T ï  %  ñ ó  A  L V  W    ˛ > > t òˇ   (  J 	Ã .  
+   Ω     @5≤ ≤ ∏ 7L+Õπ o M,*π s ,π º W≤ áœ∂ èß L≤ á—∂ è+∂ I±    . 1 J     & 	  À Œ œ – %— .÷ 2◊ ;ÿ ?⁄    *    @À     " R S    T ï  2  L V  W    q J 	” Y  
+   Ó     E5≤ ≤ ∏ 7K*‘π o L+π y M,π ≠ W,π È >£ ¨¨K≤ áˆ∂ è*∂ I¨    2 6 J     2   · ‚ ‰ Â $Ê ,Á 2Ë 4È 6Î 7Ï ?Ì CÓ    4   * R S      T ï    ñ ó  , 
+∫h  7  L V   W    ˇ 4  > t ò  ˇ     J 	÷◊ r   ÿ 
+       PªtY∑vK5≤ ≤ ∏ 7L+Ÿπ o M,π y Nß *-π « πÑ W-π ≠ öˇÏ*∞L≤ áˆ∂ è+∂ I∞   @ A J     2   Ù ˆ ˜ ¯ %˘ (˙ 6˘ ?˚ A˝ B˛ Jˇ N     4   He•    - R S   # T ï  %  ñ ó  B  L V ™      He´   W   # ˇ ( x > t ò  ˇ 
+ x  J 	€‹ r   › 
+       L∏ﬁK5≤ ≤ ∏ 7L+Ÿπ o M,π y Nß *-π « π„ W-π ≠ öˇÏ*∞L≤ áˆ∂ è+∂ I∞   < = J     2   
+    ! $ 2 ; = > F J    4   HeÊ    - R S   # T ï  !  ñ ó  >  L V ™      HeÁ   W   # ˇ $ ‰ > t ò  ˇ 
+ ‰  J 	Ë‹ r   › 
+  *     i∏ﬁK5≤ ≤ ∏ 7L+Èπ o M,π y Nß .*ª ÀY-π « ∏ Õ∑ —Î∂ ‘-π « ∂ ‘∂ ÿπ„ W-π ≠ öˇœ*∞L≤ áˆ∂ è+∂ I∞   Y Z J     2     " # $ !% $& O% X( Z) [* c+ g,    4   eeÊ    J R S   @ T ï  ! 9 ñ ó  [  L V ™      eeÁ   W   # ˇ $ ‰ > t ò  *ˇ 
+ ‰  J 	Ì .  
+   ÷     O5≤ ≤ ∏ 7L+Óπ o M,*π s ,π º W+π o M,*π s ,π º Wß L≤ áˆ∂ è+∂ I±    > A J     .   6 7 8 9 %= /> 7? >A BB JC NF    *    OÀ     2 R S   ( T ï  B  L V  W   	 ˜ A J 	Ú ˛  
+  J  	  ›5≤ ≤ ∏ 7M,Ûπ o N+∂ı:-π s ,˘π o :*π s π s π y :≤ á˚∂ è≤ á∂ }∂ è≤ á˚∂ è∂ }Å∂ Éô4-π y :π ≠ W,˝π o :*π s π « π s π « π s π « π s πW π π « π s πW π π « π s 	πW π 
+	π « π s 
+πW π π « π s πW π π º W≤ áˇ∂ è≤≤∂≤∂ h≤ˆ∂ h≤ˆ∂ h≤ˆ∂ hß 5≤≤∂≤∂ h≤ˆ∂ h≤ˆ∂ h≤ˆ∂ hß M,∂ I±   ‘◊ J     ≤ ,  N P Q R (U 3V <W FX OY XZ c[ l_ y` Åa âd îe ùf ≠g Ωi Õj ›k Ól mn$o6pHqZrlttv}xÜyè{ó|ü}ß~™Ç≥ÉºÖƒÜÃá‘äÿå‹è    f 
+  ›      ›!   » R S  æ T ï  µK   3°" ï  OÖ# ó  Å& ñ ó  î$ ï ÿ  L V  W   / ˇ™  ( ( > t ( t ò  ˇ ,  ( (  J 	%& r   ' 
+  J     u∏ﬁL5≤ ≤ ∏ 7M,(π o N-*π s -π y :ß 0+ª ÀYπ « ∏ Õ∑ —Î∂ ‘π « ∂ ‘∂ ÿπ„ Wπ ≠ öˇÃ+∞M≤ áˆ∂ è,∂ I∞   e f J     6   î ñ ó ò "ô *ö -õ Zö dû fü g† o° s¢    >    u      qeÊ   V R S   L T ï  * < ñ ó  g  L V ™      qeÁ  W   ) ˇ -  (‰ > t ò  ,ˇ   (‰  J 	* ˛  
+       j5≤ ≤ ∏ 7M,+π o N+∂ı:-*π s -π s -π º W≤≤∂≤-∂ h≤ˆ∂ h≤ˆ∂ h≤ˆ∂ hß M,∂ I±    a d J     :   © ™ ´ ¨ '≠ 0Æ 7∞ @± I≥ Q¥ Yµ a∏ eπ iº    >    j       j!    U R S   K T ï   BK   e  L V  W   	 ˜ d J 	/ .  
+  e    U5≤ ≤ ∏ 7L*∂ıM≤ áª ÀY0∑ —,∂ ‘∂ ÿ∂ è+2π o N-,π s -π y :π ≠ W≤4π « ∂:≤=π « ∂:πW ô ≤@D∂Eß ≤@H∂E≤Jπ « ∂:πW ô ≤MD∂Eß ≤MH∂E≤Pπ « ∂:πW ô ≤SD∂Eß ≤SH∂E≤V	π « ∂:
+πW ô ≤YD∂Eß ≤YH∂E≤\π « ∂:πW ô ≤_D∂Eß ≤_H∂Eß L≤ áˆ∂ è±   HK J     ~   ¡ ¬ √ +ƒ 5≈ =∆ E« M» [… i  tÀ ÄÕ âœ ó– £— Ø” ∏’ «÷ ”◊ ﬂŸ Ë€ ˜‹›ﬂ·'‚3„?ÂHÁLËTÏ    >   UÀ    < R S  4K   5 T ï  E ñ ó L  L V  W   . ˇ Ä  ( > ( t ò  %&&&ˇ   (  J 	b .  
+   Ì     R5≤ ≤ ∏ 7L+cπ o M+eπ o N*∂ı:,π s -π s ,π º W-π º Wß L+∂ I±    I L J     .   Ú Û Ù  ˆ )˜ 2¯ ;˙ B˚ I˝ M˛ Q     >    RÀ     = R S   3 T ï    )$ ï  )  K   M  L V  W   	 ˜ L J 	g .  
+  Ò    V5≤ ≤ ∏ 7L+hπ o M+jπ o N*∂ı:,≤4∂lπ s ,≤=∂lπ s ≤@∂oD∂ Ÿô ,π ß ,π ,≤J∂lπ s ≤M∂oD∂ Ÿô ,π ß ,π ,≤P∂lπ s ≤S∂oD∂ Ÿô ,π ß ,π ,≤V∂lπ s ≤Y∂oD∂ Ÿô ,	π ß ,	π ,
+≤\∂lπ s ≤_∂oD∂ Ÿô ,π ß ,π ,π s -≤4∂lπ s -≤=∂lπ s ≤@∂oD∂ Ÿô -π ß -π -≤J∂lπ s ≤M∂oD∂ Ÿô -π ß -π -≤P∂lπ s ≤S∂oD∂ Ÿô -π ß -π -≤V∂lπ s ≤Y∂oD∂ Ÿô -	π ß -	π -
+≤\∂lπ s ≤_∂oD∂ Ÿô -π ß -π -π s ,π º W-π º Wß L+∂ I±   MP J     ˛ ?       ) 6 C R Z ] e r Å â å  î# ¢$ ±% ∫& Ω( ∆, ‘- „. Ï/ Ô1 ¯4567!9*;4?A@NB]CeDhFpI}JåKîLóNüQ≠RºS≈T»V—Zﬂ[Ó\˜]˙_bc d)e,g5i?kFlMnQoUr    >   VÀ    A R S  7 T ï   -$ ï  )$K  Q  L V  W   9 ˇ ]  ( > t t (  &(((=&(((ˇ   (  J p   q
