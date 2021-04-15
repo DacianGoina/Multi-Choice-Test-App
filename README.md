@@ -3,6 +3,13 @@ A desktop GUI app to create and simulate multiple choice tests (like those from 
 
 Made with Java, Java FX, CSS and H2 database.
 
+**You can create questions with multichoice answers. Later, you can edit or delete some questions.**
+
+**You can create groups and to group questions (e.g biology quesitions, history questions)**
+
+**You can simulate (make) a test custom time limit, custom number of questions**
+
+
 
 **User Menu:**
 
