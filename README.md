@@ -5,7 +5,7 @@ Made with Java, Java FX, CSS and H2 database.
 
 **You can create questions with multichoice answers. Later, you can edit or delete some questions.**
 
-**You can create groups and to group questions (e.g biology quesitions, history questions)**
+**You can create groups and to group questions (e.g biology questions, history questions)**
 
 **You can simulate (make) a test custom time limit, custom number of questions, rule for awarding points etc**
 
